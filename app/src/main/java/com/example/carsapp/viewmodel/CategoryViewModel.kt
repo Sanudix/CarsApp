@@ -9,7 +9,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class CategoryViewModel: ViewModel() {
+class CategoryViewModel : ViewModel() {
     private val _categories = mutableStateOf<List<CategoryModel>>(emptyList())
     val categories: State<List<CategoryModel>> = _categories
 
@@ -26,12 +26,17 @@ class CategoryViewModel: ViewModel() {
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                TODO("Not yet implemented")
+                val list = ArrayList<CategoryModel>()
+                snapshot.children.forEach {
+                    it.getValue(CategoryModel::class.java)?.let { item -> list.add(item) }
+                    _categories.value = list
+                    _isLoading.value = false
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                _isLoading.value = false
             }
-        })
-    }
+    })
+}
 }
