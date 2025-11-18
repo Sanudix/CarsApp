@@ -16,10 +16,13 @@ fun MainScreen() {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xffeffefef))
+                .background(Color(0xffefefef))
         ) {
             item {
                 HeaderSection(username = "Alex Johnson", onBellClick = {})
+            }
+            item {
+                SearchSection()
             }
         }
     }
