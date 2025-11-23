@@ -11,6 +11,6 @@ data class CarModel(
     val highestSpeed: String = "",
     val engineOutput: String = "",
     val picUrl: String = "",
-    val price: String = "",
-    val rating: String = "",
+    val price: Double = 0.0,
+    val rating: Double = 0.0,
 ) : Parcelable

@@ -86,8 +86,8 @@ fun PopularListPreview() {
         highestSpeed = "250 км/ч",
         engineOutput = "670 л.с.",
         picUrl = "https://example.com/tesla_model_s.jpg",
-        price = "85,000 $",
-        rating = "4.8"
+        price = 85.000,
+        rating = 4.8
     ),
     CarModel (
         title = "BMW i8",
@@ -96,8 +96,8 @@ fun PopularListPreview() {
         highestSpeed = "280 км/ч",
         engineOutput = "369 л.с.",
         picUrl = "https://example.com/bmw_i8.jpg",
-        price = "147,500 $",
-        rating = "4.6"
+        price = 47.500,
+        rating = 4.6
     ),
     CarModel (
         title = "Porsche Taycan",
@@ -106,8 +106,8 @@ fun PopularListPreview() {
         highestSpeed = "260 км/ч",
         engineOutput = "761 л.с.",
         picUrl = "https://example.com/porsche_taycan.jpg",
-        price = "105,000 $",
-        rating = "4.9"
+        price = 105.000,
+        rating = 4.9
     ),
     CarModel (
         title = "Audi e-tron",
@@ -116,8 +116,8 @@ fun PopularListPreview() {
         highestSpeed = "200 км/ч",
         engineOutput = "355 л.с.",
         picUrl = "https://example.com/audi_etron.jpg",
-        price = "77,400 $",
-        rating = "4.5"
+        price = 77.400,
+        rating = 4.5
     ),
     CarModel (
         title = "Mercedes EQS",
@@ -126,8 +126,8 @@ fun PopularListPreview() {
         highestSpeed = "210 км/ч",
         engineOutput = "516 л.с.",
         picUrl = "https://example.com/mercedes_eqs.jpg",
-        price = "102,310 $",
-        rating = "4.7"
+        price = 102.310,
+        rating = 4.7
     )
     )
     PopularList(cars = cars, onCarClick = {})

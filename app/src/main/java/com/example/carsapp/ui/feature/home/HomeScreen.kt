@@ -26,20 +26,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.carsapp.domain.CarModel
-//import com.example.carsapp.viewmodel.CarViewModel
+import com.example.carsapp.viewmodel.CarViewModel
 import com.example.carsapp.viewmodel.CategoryViewModel
 
 @Composable
 fun MainScreen(
-//    onCarClick: (CarModel) -> Unit,
-//    carViewModel: CarViewModel,
+    onCarClick: (CarModel) -> Unit,
+    carViewModel: CarViewModel,
     categoryViewModel: CategoryViewModel
 ) {
 
     val categories by categoryViewModel.categories
     val isLoadingCategory by categoryViewModel.isLoading
-//    val cars by carViewModel.cars
-//    val isLoadingCars by carViewModel.isLoading
+    val cars by carViewModel.cars
+    val isLoadingCars by carViewModel.isLoading
 
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(
@@ -84,20 +84,20 @@ fun MainScreen(
                         Text("Popular Car", fontSize = 22.sp, fontWeight = FontWeight.Bold)
                         Text("View All", fontSize = 14.sp)
                     }
-//
-//                    Spacer(modifier = Modifier.fillMaxWidth())
 
-//                    if (isLoadingCars) {
-//                        Box(
-//                            modifier = Modifier.fillMaxWidth(),
-//                            contentAlignment = Alignment.Center
-//                        ) {
-//                            CircularProgressIndicator()
-//                        }
-//                    } else {
-////                        PopularList(cars = cars, onCarClick = onCarClick)
+                    Spacer(modifier = Modifier.fillMaxWidth())
+
+                    if (isLoadingCars) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator()
+                        }
+                    } else {
+                        PopularList(cars = cars, onCarClick = onCarClick)
 //                        Text(text = "Cars unloading successfully")
-//                    }
+                    }
                 }
             }
         }
