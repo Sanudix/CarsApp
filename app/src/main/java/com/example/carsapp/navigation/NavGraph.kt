@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.carsapp.domain.CarModel
 import com.example.carsapp.ui.feature.detail.DetailScreen
 import com.example.carsapp.ui.feature.home.MainScreen
+import com.example.carsapp.ui.feature.profile.ProfileScreen
 import com.example.carsapp.viewmodel.CarViewModel
 import com.example.carsapp.viewmodel.CategoryViewModel
 
@@ -23,14 +24,15 @@ fun AppNavGraph() {
                 onProfileClick = { navController.navigate(Screens.PROFILE) },
                 onCarClick = { car ->
                     navController.currentBackStackEntry?.savedStateHandle?.set("car", car)
-                    navController.navigate(Screens.DETAIL) },
+                    navController.navigate(Screens.DETAIL)
+                },
                 carViewModel,
                 categoryViewModel
             )
         }
 
         composable(Screens.PROFILE) {
-//            ProfileScreen(onBackClick)
+            ProfileScreen(onBack = { navController.popBackStack() })
         }
         composable(Screens.DETAIL) {
             val car = navController.previousBackStackEntry?.savedStateHandle?.get<CarModel>("car")
