@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,6 +29,7 @@ import com.example.carsapp.viewmodel.CategoryViewModel
 
 @Composable
 fun MainScreen(
+    onProfileClick: () -> Unit,
     onCarClick: (CarModel) -> Unit,
     carViewModel: CarViewModel,
     categoryViewModel: CategoryViewModel
@@ -97,5 +99,12 @@ fun MainScreen(
                 }
             }
         }
+        BottonNavBar(
+            onProfileClick = onProfileClick,
+            modifier = Modifier
+                .align (Alignment.BottomCenter)
+                .navigationBarsPadding()
+                .padding(horizontal = 16.dp, vertical = 24.dp)
+        )
     }
 }
